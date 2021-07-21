@@ -1,6 +1,7 @@
 import Alerts from "./components/Alerts";
 import Avatar from "./components/Avatar";
 import ButtonSet from "./components/ButtonSet";
+import StackAv from "./components/StackAv";
 import Progress from "./Progress";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Avatar />
       <ButtonSet />
       <Progress />
+      <StackAv />
     </div>
   );
 }
