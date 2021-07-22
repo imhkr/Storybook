@@ -2,29 +2,20 @@ import { FC, memo, ReactNode } from "react";
 
 
 interface Props {
+    theme: "primary" | "success" | "warning";
     progressPercentage: number;
 }
 
-const ProgressBar: React.FC<Props> = ({ progressPercentage }) => {
+const ProgressBar: React.FC<Props> = ({ progressPercentage, theme }) => {
 
     let ProgressClass = "";
-    if (progressPercentage >= 0 && progressPercentage < 30) {
+    if (theme == "primary") {
         ProgressClass = " bg-blue-600 "
     }
-    if (progressPercentage >= 30 && progressPercentage < 40) {
-        ProgressClass = " bg-blue-400 "
-    } if (progressPercentage >= 40 && progressPercentage < 50) {
+    if (theme == "success") {
         ProgressClass = " bg-green-500 "
-    } if (progressPercentage >= 50 && progressPercentage < 60) {
-        ProgressClass = " bg-yellow-600 "
-    }
-    if (progressPercentage >= 60 && progressPercentage < 70) {
-        ProgressClass = " bg-red-600 "
-    } if (progressPercentage >= 70 && progressPercentage < 80) {
-        ProgressClass = " bg-purple-600 "
-    }
-    if (progressPercentage >= 80 && progressPercentage < 100) {
-        ProgressClass = " bg-gray-800 "
+    } if (theme == "warning") {
+        ProgressClass = " bg-red-500 "
     }
     if (progressPercentage > 100) {
         console.error((progressPercentage) + " Is Beyond 100")
@@ -32,7 +23,7 @@ const ProgressBar: React.FC<Props> = ({ progressPercentage }) => {
     }
     if (progressPercentage < 0) {
         console.error((progressPercentage) + " Is Below 100")
-        ProgressClass = " bg-blue-600 "
+
     }
     return (
 

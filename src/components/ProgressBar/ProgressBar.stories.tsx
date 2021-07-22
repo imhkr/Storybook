@@ -10,6 +10,7 @@ const xyz = {
 export const main = (args: any) => <ProgressBar{...args} ></ProgressBar>
 
 main.args = {
+    theme: "primary",
     progressPercentage: 0,
 }
 

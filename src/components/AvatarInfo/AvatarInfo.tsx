@@ -1,11 +1,14 @@
+import { HtmlHTMLAttributes, ImgHTMLAttributes } from "react";
 import { FC, memo } from "react";
 
 
-interface Props {
+interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     online?: true | false | undefined;
+    src: string;
+    className?: string;
 }
 
-const AvatarInfo: React.FC<Props> = ({ online }) => {
+const AvatarInfo: React.FC<Props> = ({ online, src, className, ...rest }) => {
     let iconClasses = "";
     if (online == false) {
         iconClasses = " bg-gray-300 ";
@@ -15,7 +18,10 @@ const AvatarInfo: React.FC<Props> = ({ online }) => {
     }
     return (
         <div className="relative inline-block">
-            <img className="inline object-cover  w-20 h-20 mr-2 rounded-full" src="https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile image" />
+            <img
+                {...rest}
+                src={src}
+                className="inline object-cover  w-20 h-20 mr-2 rounded-full" alt="Profile image" />
             <span className={"absolute bottom-0 right-4 inline-block w-5 h-5   border-2 border-white rounded-full" + iconClasses}></span>
         </div >
     );

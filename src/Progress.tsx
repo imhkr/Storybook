@@ -8,7 +8,7 @@ const Progress: React.FC<Props> = (props) => {
 
     return (
         <div >
-            <ProgressBar progressPercentage={0} />
+            <ProgressBar progressPercentage={0} theme="primary" />
         </div>
     );
 };
